@@ -1,7 +1,4 @@
-
-$(document).ready(function(){
-
-var wordsArray = ["Microsoft", "Apple", "Hewlett Packard", "Google", "Intel", "Cisco Systems", "Oracle", "Gilead Sciences", "eBay", "Synnex", "Facebook", "Applied Materials", "SanDisk", "Symantec", "NetApp", "VMWare", "Netflix", "Salesforce", "Nvidia", "Yahoo", "Adobe Systems", "LinkedIn", "Twitter", "GoPro", "Zynga", "Yelp", "Chegg", "Solarcity", "Sprig", "Theranos", "SpaceX", "Munchery", "Okta", "Mulesoft", "Captionly", "JoinedApp", "TownHound", "Mindly", "JetInsight", "Tinder", "Bumble", "Duo Security", "Cloudera", "Jawbone", "Medallia", "Pinterest", "Dropbox", "Airbnb", "Kabam", "AppDynamics", "Credit Karma", "MongoDB", "Okta", "Palantir", "Twilio", "AppNexus", "Uber", "Eventbrite", "Zuora", "Gilt Groupe", "DocuSign", "MediaMath", "ZScale", "Pinterest", "Glassdoor", "ZocDoc", "Zenefits", "Chipmunk", "Weebly", "Final", "Unbabel", "FrontApp", "Sliced Investing", "Move Loot", "Estimote", "Bumble", "Dr Chrono", "DoorDash", "Homejoy", "Product Hunt", "ZenPayroll", "Mattermark", "FlightCar", "LendUp", "LE TOTE", "Stripe", "iCracked", "Genius", "Airware", "Clustrix", "Instacart", "Coinbase", "Quora", "Codecademy", "E la Carte", "Scripd", "WePay", "Optimizely", "Tilt", "PagerDuty", "FutureAdvisor", "Interana", "Matterport", "HackerRank", "Kamcord", "FiveStars", "Sift Science", "Sirum", "Bluesmart", "Shift Messenger", "Paperspace", "Magic", "Dealyze", "Treeline", "Qualcomm", "Oracle", "Broadcom", "IBM", "Amazon", "Genesys", "Interactive Intelligence", "Mindbody", "Zillow", "Snapchat"];
+var wordsArray = ["Microsoft", "Apple", "Hewlett Packard", "Google", "Intel", "Cisco Systems", "Oracle", "Gilead Sciences", "eBay", "Synnex", "Facebook", "Applied Materials", "SanDisk", "Symantec", "NetApp", "VMWare", "Netflix", "Salesforce", "Nvidia", "Yahoo", "Adobe Systems", "LinkedIn", "Twitter", "GoPro", "Zynga", "Yelp", "Chegg", "Solarcity", "Sprig", "Theranos", "SpaceX", "Munchery", "Okta", "Mulesoft", "Captionly", "JoinedApp", "TownHound", "Mindly", "JetInsight", "Tinder", "Bumble", "Duo Security", "Cloudera", "Jawbone", "Medallia", "Pinterest", "Dropbox", "Airbnb", "Kabam", "AppDynamics", "Credit Karma", "MongoDB", "Okta", "Palantir", "Twilio", "AppNexus", "Uber", "Eventbrite", "Zuora", "Gilt Groupe", "DocuSign", "MediaMath", "ZScale", "Pinterest", "Glassdoor", "ZocDoc", "Zenefits", "Hipmunk", "Weebly", "Final", "Unbabel", "FrontApp", "Sliced Investing", "Move Loot", "Estimote", "Bumble", "Dr Chrono", "DoorDash", "Homejoy", "Product Hunt", "ZenPayroll", "Mattermark", "FlightCar", "LendUp", "LE TOTE", "Stripe", "iCracked", "Genius", "Airware", "Clustrix", "Instacart", "Coinbase", "Quora", "Codecademy", "E la Carte", "Scripd", "WePay", "Optimizely", "Tilt", "PagerDuty", "FutureAdvisor", "Interana", "Matterport", "HackerRank", "Kamcord", "FiveStars", "Sift Science", "Sirum", "Bluesmart", "Shift Messenger", "Paperspace", "Magic", "Dealyze", "Treeline", "Qualcomm", "Oracle", "Broadcom", "IBM", "Amazon", "Genesys", "Interactive Intelligence", "Mindbody", "Zillow", "Snapchat"];
 
 // Note: inclusive - includes min and max
 function getRandomNumber(min, max) {
@@ -72,9 +69,10 @@ document.body.style.backgroundColor='white';
 
 
 wordAsArrayOfChar.forEach(function(item,i){
-if(wordAsArrayOfChar[i].toLowerCase()==letter){
+if(wordAsArrayOfChar[i].toLowerCase()==letter.toLowerCase()){
+  // If solution supposed to be uppercase, then assign uppercase user input to solution array. If solution not supposed to be uppercase, then assign lowercase user input to solution array.
   solutionArray[i] = wordAsArrayOfChar[i].toUpperCase()==wordAsArrayOfChar[i] ?
-letter.toUpperCase():letter;
+letter.toUpperCase():letter.toLowerCase();
 letterFlag = true;
 }
 
@@ -122,8 +120,6 @@ switch(wrongLetterCounter) {
       break;
     case 9:
       ctx.lineTo(90,70);
-      break;
-    default:
       console.log("YouLose");
       $('.hangman').append('<div id="win" height=20px width=100px style="color:red;background-color:purple;">YOU LOSE</div>');
 $("#win").animate({
@@ -131,6 +127,9 @@ $("#win").animate({
         height: '+=150px',
         width: '+=150px'
     });
+
+      break;
+    default:
       break;
 }
 ctx.stroke();
@@ -143,17 +142,42 @@ solution = solution.replace("-"," ");
 
 if(solution == wordForComparison) {
     console.log("YOU WIN");
-    $('.hangman').append('<div id="win" height=20px width=100px style="color:red;background-color:yellow;">YOU WIN</div>');
+  $('.hangman').append('<div class="winAnimation"  style="height:20px; width:90px; color:red;background-color:yellow;">YOU WIN!!!</div>');
 
+  // height=30px width=25px
+  $('.winAnimation').velocity(
+    { rotateX: "+=0",
+      rotateY: "+=360",
+      height: '+=50px',
+      width: '+=100px'
+    },
+    {
+      duration:4000,
+      loop:true,
+      easing:'linear'
+  });
+
+// jQuery vs Velocity.js
+/* In jQuery
 $("#win").animate({
         left: '250px',
         height: '+=150px',
         width: '+=150px'
     });
 }
+*/
+
+/*
+// Using library Velocity.js
+$("#win").velocity({
+        left: '250px',
+        height: '+=150px',
+        width: '+=150px'
+  });
+*/
+
+}  // if(solution == wordComparison) you win
 
 $('#answer').empty().append('<div>The word: '+solutionDisplay+'</div>'+'<p>Characters used: '+charactersUsed+'</p>'+'<p>Wrong characters used: '+wrongCharacters+'</p>');
 
 });
-
-}); // $(document).ready(function(){});
