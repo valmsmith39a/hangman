@@ -1,3 +1,6 @@
+
+$(document).ready(function(){
+
 var wordsArray = ["Microsoft", "Apple", "Hewlett Packard", "Google", "Intel", "Cisco Systems", "Oracle", "Gilead Sciences", "eBay", "Synnex", "Facebook", "Applied Materials", "SanDisk", "Symantec", "NetApp", "VMWare", "Netflix", "Salesforce", "Nvidia", "Yahoo", "Adobe Systems", "LinkedIn", "Twitter", "GoPro", "Zynga", "Yelp", "Chegg", "Solarcity", "Sprig", "Theranos", "SpaceX", "Munchery", "Okta", "Mulesoft", "Captionly", "JoinedApp", "TownHound", "Mindly", "JetInsight", "Tinder", "Bumble", "Duo Security", "Cloudera", "Jawbone", "Medallia", "Pinterest", "Dropbox", "Airbnb", "Kabam", "AppDynamics", "Credit Karma", "MongoDB", "Okta", "Palantir", "Twilio", "AppNexus", "Uber", "Eventbrite", "Zuora", "Gilt Groupe", "DocuSign", "MediaMath", "ZScale", "Pinterest", "Glassdoor", "ZocDoc", "Zenefits", "Chipmunk", "Weebly", "Final", "Unbabel", "FrontApp", "Sliced Investing", "Move Loot", "Estimote", "Bumble", "Dr Chrono", "DoorDash", "Homejoy", "Product Hunt", "ZenPayroll", "Mattermark", "FlightCar", "LendUp", "LE TOTE", "Stripe", "iCracked", "Genius", "Airware", "Clustrix", "Instacart", "Coinbase", "Quora", "Codecademy", "E la Carte", "Scripd", "WePay", "Optimizely", "Tilt", "PagerDuty", "FutureAdvisor", "Interana", "Matterport", "HackerRank", "Kamcord", "FiveStars", "Sift Science", "Sirum", "Bluesmart", "Shift Messenger", "Paperspace", "Magic", "Dealyze", "Treeline", "Qualcomm", "Oracle", "Broadcom", "IBM", "Amazon", "Genesys", "Interactive Intelligence", "Mindbody", "Zillow", "Snapchat"];
 
 // Note: inclusive - includes min and max
@@ -152,3 +155,5 @@ $("#win").animate({
 $('#answer').empty().append('<div>The word: '+solutionDisplay+'</div>'+'<p>Characters used: '+charactersUsed+'</p>'+'<p>Wrong characters used: '+wrongCharacters+'</p>');
 
 });
+
+}); // $(document).ready(function(){});
